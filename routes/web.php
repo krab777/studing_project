@@ -52,6 +52,22 @@ Route::post('CheckWeight', function () {
 //     return view('tasks.show', compact('task'));
 // });
 
+
+//articles and users
 Route::get('/tasks', 'TasksController@index');
 
 Route::get('/tasks/{task}', 'TasksController@show');
+
+Route::get('/articles', 'ArticlesController@showAll')->name('articles');
+
+Route::get('/users', 'UsersController@showAll')->name('users');
+
+Route::get('stud_delete/{id}','UsersController@deleteUser')->name('user_delete');
+
+
+//lect sub rooms
+Route::get('lectures/','LecturesController@render')->name('lectures');
+
+Route::get('subjects/','SubjectsController@render')->name('subjects');
+
+Route::get('rooms/','RoomsController@render')->name('rooms');

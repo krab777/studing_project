@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateArticlesControllersTable extends Migration
+class CreateArticlesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,14 @@ class CreateArticlesControllersTable extends Migration
      */
     public function up()
     {
-        Schema::create('articles_controllers', function (Blueprint $table) {
+        Schema::create('articles', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->text('content');
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.
@@ -26,6 +29,6 @@ class CreateArticlesControllersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('articles_controllers');
+        Schema::dropIfExists('articles');
     }
 }

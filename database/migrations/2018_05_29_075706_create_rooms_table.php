@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersControllersTable extends Migration
+class CreateRoomsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,15 @@ class CreateUsersControllersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users_controllers', function (Blueprint $table) {
+        Schema::create('rooms', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
+            $table->integer('number');
+            $table->integer('roominess');
         });
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
-        Schema::dropIfExists('users_controllers');
+        Schema::dropIfExists('rooms');
     }
+
 }
